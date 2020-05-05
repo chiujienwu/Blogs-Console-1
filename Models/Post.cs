@@ -1,10 +1,15 @@
-﻿using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Threading.Tasks;
 
 namespace BlogsConsole.Models
 {
     public class Post
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PostId { get; set; }
+        [Required(ErrorMessage = "Post Title is required")]
         public string Title { get; set; }
         public string Content { get; set; }
 
